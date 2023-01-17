@@ -37,4 +37,7 @@ def data_structure_unification(bank_records_dataframe) -> pd.DataFrame:
     bank_records_dataframe = CreditAgricoleDatetimeValueProcess.get_operation_date_as_datetype(bank_records_dataframe, year_bank_records)
     bank_records_dataframe = CreditAgricoleDatetimeValueProcess.year_modification_december_bank_file(bank_records_dataframe)
 
+    # Re-order the columns
+    bank_records_dataframe = CreditAgricoleBankDataProcessPipeline.get_correct_columns_order(bank_records_dataframe)
+
     return bank_records_dataframe

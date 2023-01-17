@@ -62,3 +62,9 @@ class CreditAgricoleBankDataProcessPipeline:
         bank_records_dataframe = bank_records_dataframe.rename({'date_operation': 'operation_date'}, axis=1)
 
         return bank_records_dataframe
+
+    def get_correct_columns_order(bank_records_dataframe):
+
+        bank_records_dataframe = bank_records_dataframe[['operation_date', 'operation_description', 'debit', 'credit']]
+        
+        return bank_records_dataframe

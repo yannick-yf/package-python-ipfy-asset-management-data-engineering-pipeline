@@ -47,7 +47,7 @@ class CreditAgricoleDatetimeValueProcess:
         return bank_records_dataframe
 
 
-    def year_modification_december_bank_file(bank_records_dataframe, year_bank_records):
+    def year_modification_december_bank_file(bank_records_dataframe):
         """
         For bank records in December it might be possible to have two different years
         From the previous processstep all the records will have by defauklt the year_bank_records as year.
@@ -60,9 +60,10 @@ class CreditAgricoleDatetimeValueProcess:
         most_present_months = month_distribution['month'].head(1).values[0]
 
         if most_present_months == 12:
-            bank_records_dataframe['date_operation'] = np.where(
-                bank_records_dataframe['date_operation'].dt.month==1,
-                bank_records_dataframe['date_operation'] + pd.offsets.DateOffset(years=1),
-                bank_records_dataframe['date_operation']
+            bank_records_dataframe['operation_date'] = np.where(
+                bank_records_dataframe['operation_date'].dt.month==1,
+                bank_records_dataframe['operation_date'] + pd.offsets.DateOffset(years=1),
+                bank_records_dataframe['operation_date']
             )
 
+        return bank_records_dataframe

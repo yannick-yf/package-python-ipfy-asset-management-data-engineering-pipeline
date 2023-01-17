@@ -26,9 +26,7 @@ def test_orchestration_and_process_execution():
     test_dataframe_credit_agricole = textract_zip.get_csv_table_from_unzipped_file()
 
     DataPipeline = OrchestrationAndProcessExecutionPipeline(bank_records_data = test_dataframe_credit_agricole)
-    data_process_and_unification = DataPipeline.orchestration_and_process_execution()
+    bank_data_processed = DataPipeline.orchestration_and_process_execution()
     
-    print(data_process_and_unification.columns)
-    print(data_process_and_unification.head())
-
-    assert test_dataframe_credit_agricole.shape[0] > 0
+    assert bank_data_processed.shape[0] > 0
+    assert list(bank_data_processed.columns) == ['operation_date', 'operation_description', 'debit', 'credit']
