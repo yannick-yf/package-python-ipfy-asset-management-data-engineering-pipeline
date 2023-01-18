@@ -17,9 +17,12 @@ class BankDataTypeDetection:
         """
 
         # List strucutre from different banks
-        columns_credit_agricole = ["'Date ope. ", "'Date valeur ", "'Libellé des opérations ", "'Débit ", "'Crédit ", "'", "Unnamed: 6", "'Date opé. "]
+        columns_credit_agricole_type_1 = ["'Date ope. ", "'Date valeur ", "'Libellé des opérations ", "'Débit ", "'Crédit ", "'", "Unnamed: 6", "'Date opé. "]
+        columns_credit_agricole_type_2 = ["'Date ope. ", "'Date valeur ", "'Libellé des opérations ", "'Débit ", "'Crédit ", "'", "Unnamed: 6"]
 
-        if list(bank_records_data_columns) == columns_credit_agricole:
+        if list(bank_records_data_columns) == columns_credit_agricole_type_1:
+            return 'CreditAgricoleAlsace'
+        elif list(bank_records_data_columns) == columns_credit_agricole_type_2:
             return 'CreditAgricoleAlsace'
         else:
             return 'DontKnowYet'

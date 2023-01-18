@@ -11,6 +11,9 @@ def data_structure_unification(bank_records_dataframe) -> pd.DataFrame:
     Unification will allow us to combined all the different banks records type together
     """
 
+    # Reset the index because there are different from the previous file unification step
+    bank_records_dataframe = bank_records_dataframe.reset_index(drop=True)
+
     # String fromating on the columns
     bank_records_dataframe.columns = bank_records_dataframe.columns.str.replace("'", "", regex=False)
     bank_records_dataframe.columns = bank_records_dataframe.columns.str.replace(".", "", regex=False)
@@ -39,5 +42,8 @@ def data_structure_unification(bank_records_dataframe) -> pd.DataFrame:
 
     # Re-order the columns
     bank_records_dataframe = CreditAgricoleBankDataProcessPipeline.get_correct_columns_order(bank_records_dataframe)
+
+    # Reset the index as a final step
+    bank_records_dataframe = bank_records_dataframe.reset_index(drop=True)
 
     return bank_records_dataframe
