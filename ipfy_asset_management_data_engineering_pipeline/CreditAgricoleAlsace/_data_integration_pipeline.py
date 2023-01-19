@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 
+
 class CreditAgricoleBankDataProcessPipeline:
     """class that process credit agricole bank data"""
 

@@ -3,7 +3,13 @@
 import dataclasses
 import pandas as pd
 
-from ipfy_asset_management_data_engineering_pipeline import BankDataTypeDetection, creditagricolealsace
+from ipfy_asset_management_data_engineering_pipeline import (
+    BankDataTypeDetection,
+    creditagricolealsace,
+    creditagricolenextbank,
+    boursorama,
+)
+
 
 @dataclasses.dataclass
 class OrchestrationAndProcessExecutionPipeline:
@@ -31,7 +37,16 @@ class OrchestrationAndProcessExecutionPipeline:
                 creditagricolealsace.data_structure_unification(self.bank_records_data)
             )
 
+        if bank_file_type == "CreditAgricoleNextBank":
+            unifed_bank_records: pd.DataFrame = (
+                creditagricolenextbank.data_structure_unification(
+                    self.bank_records_data
+                )
+            )
+
         if bank_file_type == "BoursoramaBanque":
-            print("Need to create the class")
+            unifed_bank_records: pd.DataFrame = boursorama.data_structure_unification(
+                self.bank_records_data
+            )
 
         return unifed_bank_records

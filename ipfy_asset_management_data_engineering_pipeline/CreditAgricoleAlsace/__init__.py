@@ -6,6 +6,6 @@ from .data_pipeline_execution import data_structure_unification
 
 __all__ = [
     "CreditAgricoleBankDataProcessPipeline",
-    "data_pipeline_execution",
+    "data_structure_unification",
     "CreditAgricoleDatetimeValueProcess",
 ]

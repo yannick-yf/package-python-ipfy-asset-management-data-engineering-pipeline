@@ -130,6 +130,8 @@ dmypy.json
 
 # My ignore
 tests/data_example/example_3.zip
+tests/data_example/example_BB_CC.zip
+tests/data_example/example_CANEXT_CC.zip
 *.ipynb_checkpoints
 *.ipynb
 *.DS_Store

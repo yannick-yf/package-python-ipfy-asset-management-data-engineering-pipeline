@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ipfy-asset-management-data-engineering-pipeline"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python package to exctract table from pdf"
 authors = ["Yannick Flores <yannick.flores1992@gmail.com>"]
 readme = "README.md"

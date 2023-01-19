@@ -20,7 +20,7 @@ def test_orchestration_and_process_execution():
     )
 
     list_file_unzipped = textract_zip.unzip_textract_zip_file(
-        path_to_zip_file = './tests/data_example/example_1.zip'
+        path_to_zip_file = './tests/data_example/example_BB_CC.zip'
     )
 
     test_dataframe_credit_agricole = textract_zip.get_csv_table_from_unzipped_file()
